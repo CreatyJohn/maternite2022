@@ -1,0 +1,32 @@
+{
+  "name": "form-maternite",
+  "version": "1.0.0",
+  "main": "babel.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CreatyJohn/materniteVue.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CreatyJohn/materniteVue/issues"
+  },
+  "homepage": "https://github.com/CreatyJohn/materniteVue#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "exports": "0.0.1",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "firebase": "^9.6.10",
+    "init": "^0.1.2",
+    "json": "^11.0.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.15",
+    "path": "^0.12.7",
+    "route": "^0.2.5"
+  },
+  "description": ""
+}

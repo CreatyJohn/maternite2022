@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Maternite - service for art theraphist</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script
+      src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Font Awesome icons (free version)-->
+    <!-- Google fonts-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="./style.css" rel="stylesheet" />
+
+    <style>
+      html {
+        background-color: #56baed;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        height: 100vh;
+      }
+
+      a {
+        color: #92badd;
+        display: inline-block;
+        text-decoration: none;
+        font-weight: 400;
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        display: inline-block;
+        margin: 40px 8px 10px 8px;
+        color: #cccccc;
+      }
+
+      /* STRUCTURE */
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        min-height: 100%;
+        padding: 20px;
+      }
+
+      #formContent {
+        -webkit-border-radius: 10px 10px 10px 10px;
+        border-radius: 10px 10px 10px 10px;
+        background: #fff;
+        padding: 30px;
+        width: 90%;
+        max-width: 450px;
+        position: relative;
+        padding: 0px;
+        -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+        box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+        text-align: center;
+      }
+
+      #formFooter {
+        background-color: #f6f6f6;
+        border-top: 1px solid #dce8f1;
+        padding: 25px;
+        text-align: center;
+        -webkit-border-radius: 0 0 10px 10px;
+        border-radius: 0 0 10px 10px;
+      }
+
+      /* TABS */
+
+      h2.inactive {
+        color: #cccccc;
+      }
+
+      h2.active {
+        color: #0d0d0d;
+        border-bottom: 2px solid #5fbae9;
+      }
+
+      /* Simple CSS3 Fade-in-down Animation */
+      .fadeInDown {
+        -webkit-animation-name: fadeInDown;
+        animation-name: fadeInDown;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+      }
+
+      @-webkit-keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+
+      @keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: none;
+          transform: none;
+        }
+      }
+
+      /* Simple CSS3 Fade-in Animation */
+      @-webkit-keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @-moz-keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .fadeIn {
+        opacity: 0;
+        -webkit-animation: fadeIn ease-in 1;
+        -moz-animation: fadeIn ease-in 1;
+        animation: fadeIn ease-in 1;
+
+        -webkit-animation-fill-mode: forwards;
+        -moz-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+
+        -webkit-animation-duration: 1s;
+        -moz-animation-duration: 1s;
+        animation-duration: 1s;
+      }
+
+      .fadeIn.first {
+        -webkit-animation-delay: 0.4s;
+        -moz-animation-delay: 0.4s;
+        animation-delay: 0.4s;
+      }
+
+      .fadeIn.second {
+        -webkit-animation-delay: 0.6s;
+        -moz-animation-delay: 0.6s;
+        animation-delay: 0.6s;
+      }
+
+      .fadeIn.third {
+        -webkit-animation-delay: 0.8s;
+        -moz-animation-delay: 0.8s;
+        animation-delay: 0.8s;
+      }
+
+      .fadeIn.fourth {
+        -webkit-animation-delay: 1s;
+        -moz-animation-delay: 1s;
+        animation-delay: 1s;
+      }
+
+      /* Simple CSS3 Fade-in Animation */
+      .underlineHover:after {
+        display: block;
+        left: 0;
+        bottom: -10px;
+        width: 0;
+        height: 2px;
+        background-color: #56baed;
+        content: "";
+        transition: width 0.2s;
+      }
+
+      .underlineHover:hover {
+        color: #0d0d0d;
+      }
+
+      .underlineHover:hover:after {
+        width: 100%;
+      }
+
+      /* OTHERS */
+
+      *:focus {
+        outline: none;
+      }
+
+      #icon {
+        width: 60%;
+      }
+
+      .divider:after,
+      .divider:before {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: #eee;
+      }
+      .h-custom {
+        height: calc(100% - 73px);
+      }
+      @media (max-width: 450px) {
+        .h-custom {
+          height: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav
+      class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top"
+      id="mainNav"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="./index.html">maternite</a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto"></ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+            class="img-fluid"
+            alt="Sample image"
+          />
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <div
+            class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start"
+          >
+            <p class="lead fw-normal mb-0 me-3"></p>
+            <button type="button" class="btn btn-primary btn-floating mx-1">
+              <i class="fab fa-facebook-f"></i>
+            </button>
+
+            <button type="button" class="btn btn-primary btn-floating mx-1">
+              <i class="fab fa-google"></i>
+            </button>
+
+            <button type="button" class="btn btn-primary btn-floating mx-1">
+              <i class="fab fa-instagram"></i>
+            </button>
+            로 로그인
+          </div>
+
+          <div class="divider d-flex align-items-center my-4">
+            <p class="text-center fw-bold mx-3 mb-0">Or</p>
+          </div>
+
+          <!--username input-->
+          <div class="form-outline mb-2">
+            <input
+              type="text"
+              id="userInp"
+              class="form-control"
+              placeholder="Enter ID"
+            />
+          </div>
+
+          <!--Password input-->
+          <div class="form-outline mb-2">
+            <input
+              type="password"
+              id="passInp"
+              class="form-control"
+              placeholder="Enter password"
+            />
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <!--Checkbox-->
+            <div class="form-check mb-0">
+              <input
+                class="form-check-input me-2"
+                type="checkbox"
+                value="keeplogin"
+                id="customSwitch1"
+              />
+              <label class="form-check-label" for="customSwitch1">
+                Remember
+              </label>
+            </div>
+          </div>
+
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button type="text" id="sub_btn" class="btn btn-primary btn-lg">
+              LOGIN
+            </button>
+            <p class="small fw-bold mt-2 pt-1 mb-0">
+              가입하시겠습니까?
+              <a href="./register.html" class="link-danger">회원가입</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer-->
+    <footer class="footer text-center">
+      <div class="container">
+        <div class="row">
+          <!-- Footer Location-->
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Location</h4>
+            <p class="lead mb-0">
+              Junwoo John Kwon
+              <br />
+              Republic of Korea, Seoul
+              <br />
+              Sangil-dong
+            </p>
+          </div>
+          <!-- Footer Social Icons-->
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Around the Web</h4>
+            <a class="btn btn-outline-light btn-social mx-1" href="#!"
+              ><i class="fab fa-fw fa-facebook-f"></i
+            ></a>
+            <a class="btn btn-outline-light btn-social mx-1" href="#!"
+              ><i class="fab fa-fw fa-instagram"></i
+            ></a>
+            <a class="btn btn-outline-light btn-social mx-1" href="#!"
+              ><i class="fab fa-fw fa-dribbble"></i
+            ></a>
+          </div>
+          <!-- Footer About Text-->
+          <div class="col-lg-4">
+            <h4 class="text-uppercase mb-4">License</h4>
+            <p class="lead mb-0">
+              Freelance is a free to use<br />
+              MIT licensed Bootstrap theme created by<br />
+              <a href="http://startbootstrap.com">Start Bootstrap</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <script src="./js/index.js"></script>
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAd4xtcjbcoX_AFXYlaYtzU1LFmOrajkxQ",
+        authDomain: "maternite-448e6.firebaseapp.com",
+        databaseURL: "https://maternite-448e6-default-rtdb.firebaseio.com",
+        projectId: "maternite-448e6",
+        storageBucket: "maternite-448e6.appspot.com",
+        messagingSenderId: "472288551584",
+        appId: "1:472288551584:web:558a9adb4f344641f11fc5",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+
+      import {
+        getDatabase,
+        ref,
+        set,
+        child,
+        get,
+        onValue,
+      } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+      import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+
+      const db = getDatabase();
+      const auth = getAuth();
+
+      //-------------------------REFRENCES-------------------//
+
+      const username = document.getElementById("userInp");
+      const pass = document.getElementById("passInp");
+      const submit = document.getElementById("sub_btn");
+
+      //-------------------------인증 REFRENCES-------------------//
+
+      function AuthenticateUser() {
+        const dbRef = ref(db);
+
+        get(child(dbRef, "UsersList/" + username.value)).then((snapshot) => {
+          if (snapshot.exists()) {
+            let dbpass = decPass(snapshot.val().password);
+
+            if (dbpass == pass.value) {
+              login(snapshot.val());
+            } else {
+              alert("아이디 혹은 비밀번호가 유효하지 않습니다");
+            }
+          } else {
+            alert("아이디가 존재하지 않습니다");
+          }
+        });
+      }
+
+      //-------------------------DECRIPT process-------------------//
+
+      function decPass(dbpass) {
+        var passdec = CryptoJS.AES.decrypt(dbpass, pass.value);
+        return passdec.toString(CryptoJS.enc.Utf8);
+      }
+
+      //------------------------- LOGIN -------------------//
+
+      function login(user) {
+        let keepLoggedIn = document.getElementById("customSwitch1").checked;
+
+        if (!keepLoggedIn) {
+          sessionStorage.setItem("user", JSON.stringify(user));
+          window.location = "index.html";
+        } else {
+          localStorage.setItem("keepLoggedIn", "yes");
+          localStorage.setItem("user", JSON.stringify(user));
+          window.location = "index.html";
+        }
+      }
+
+      //----------------------submit click--------------------//
+
+      submit.addEventListener("click", AuthenticateUser);
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  </body>
+</html>
