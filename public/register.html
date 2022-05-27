@@ -262,12 +262,13 @@
             <a href="#">개인정보 보호정책</a></label
           >에 동의합니다
         </div>
-        <input
-          type="button"
+        <button
+          type="text"
           id="sub_btn"
           class="btn w-100 btn-outline-primary mb-3"
-          value="가입"
-        />
+        >
+          회원가입
+        </button>
         <div class="text-center">
           이미 가입하셨습니까? <a href="./login.html">로그인</a>
         </div>
@@ -321,7 +322,7 @@
       </div>
     </footer>
 
-    <script type="module">
+    <script>
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
       import {
         getDatabase,
@@ -366,7 +367,7 @@
       function Validation() {
         let emailregex = /^[a-zA-Z0-9]+@(gmail|naver|yahoo|bible)\.com$/;
         let userregex = /^[a-zA-Z0-9]{5,}$/;
-        let passregex = /{6,}$/;
+        let passregex = /^{6,}$/;
 
         if (
           isEmptyOrSpaces(name.value) ||
@@ -435,7 +436,7 @@
       }
 
       //----------------------ASSIGN THE EVENTS--------------------//
-      submit.addEventListener("click", RegisterUser);
+      submit.addEventListener("click", RegisterUser());
     </script>
 
     <!-- Copyright Section-->
