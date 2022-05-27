@@ -391,21 +391,23 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    <script src="./js/index.js"></script>
+    <script src="./src/index.js"></script>
 
     <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
 
       // Your web app's Firebase configuration
       const firebaseConfig = {
-        apiKey: "AIzaSyAd4xtcjbcoX_AFXYlaYtzU1LFmOrajkxQ",
-        authDomain: "maternite-448e6.firebaseapp.com",
-        databaseURL: "https://maternite-448e6-default-rtdb.firebaseio.com",
-        projectId: "maternite-448e6",
-        storageBucket: "maternite-448e6.appspot.com",
-        messagingSenderId: "472288551584",
-        appId: "1:472288551584:web:558a9adb4f344641f11fc5",
+        apiKey: "AIzaSyDgwATs9sqqMo6hQjwv7bLkmiaTiLmq2j8",
+        authDomain: "maternite2022-f2c0c.firebaseapp.com",
+        databaseURL: "https://maternite2022-f2c0c-default-rtdb.firebaseio.com",
+        projectId: "maternite2022-f2c0c",
+        storageBucket: "maternite2022-f2c0c.appspot.com",
+        messagingSenderId: "550837763853",
+        appId: "1:550837763853:web:270e3808edb8185ca67a44",
       };
 
       // Initialize Firebase
@@ -419,10 +421,8 @@
         get,
         onValue,
       } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
-      import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
       const db = getDatabase();
-      const auth = getAuth();
 
       //-------------------------REFRENCES-------------------//
 

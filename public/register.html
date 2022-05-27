@@ -132,17 +132,19 @@
     </style>
   </head>
 
-  <body id="page-top">
-    <!-- Navigation-->
-    <nav
-      class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top"
-      id="mainNav"
-    >
-      <div class="container">
-        <a class="navbar-brand" href="./index.html">maternite</a>
-      </div>
-    </nav>
-    <link rel="stylesheet" id="bootstrap-css" />
+  <body>
+    <body id="page-top">
+      <!-- Navigation-->
+      <nav
+        class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top"
+        id="mainNav"
+      >
+        <div class="container">
+          <a class="navbar-brand" href="./index.html">maternite</a>
+        </div>
+      </nav>
+      <link rel="stylesheet" id="bootstrap-css" />
+    </body>
 
     <!--Main code
     Here -->
@@ -232,7 +234,7 @@
               name="phonenumber"
               placeholder="Phone Number"
               class="form-control mb-0"
-              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
               required
             />
           </div>
@@ -261,9 +263,8 @@
           >에 동의합니다
         </div>
         <input
-          type="text"
+          type="button"
           id="sub_btn"
-          name="signup_submit"
           class="btn w-100 btn-outline-primary mb-3"
           value="가입"
         />
@@ -291,14 +292,20 @@
           <!-- Footer Social Icons-->
           <div class="col-lg-4 mb-5 mb-lg-0">
             <h4 class="text-uppercase mb-4">Around the Web</h4>
-            <a class="btn btn-outline-light btn-social mx-1" href="#!"
+            <a
+              class="btn btn-outline-light btn-social mx-1"
+              href="https://www.facebook.com/maternite2022/"
               ><i class="fab fa-fw fa-facebook-f"></i
             ></a>
-            <a class="btn btn-outline-light btn-social mx-1" href="#!"
+            <a
+              class="btn btn-outline-light btn-social mx-1"
+              href="https://www.instagram.com/maternite2022/"
               ><i class="fab fa-fw fa-instagram"></i
             ></a>
-            <a class="btn btn-outline-light btn-social mx-1" href="#!"
-              ><i class="fab fa-fw fa-dribbble"></i
+            <a
+              class="btn btn-outline-light btn-social mx-1"
+              href="https://www.google.com/search?q=maternite2022"
+              ><i class="fab fa-fw fa-google"></i
             ></a>
           </div>
           <!-- Footer About Text-->
@@ -313,130 +320,143 @@
         </div>
       </div>
     </footer>
-  </body>
 
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        set,
+        child,
+        update,
+        remove,
+      } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
 
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyAd4xtcjbcoX_AFXYlaYtzU1LFmOrajkxQ",
-      authDomain: "maternite-448e6.firebaseapp.com",
-      databaseURL: "https://maternite-448e6-default-rtdb.firebaseio.com",
-      projectId: "maternite-448e6",
-      storageBucket: "maternite-448e6.appspot.com",
-      messagingSenderId: "472288551584",
-      appId: "1:472288551584:web:558a9adb4f344641f11fc5",
-    };
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDgwATs9sqqMo6hQjwv7bLkmiaTiLmq2j8",
+        authDomain: "maternite2022-f2c0c.firebaseapp.com",
+        databaseURL: "https://maternite2022-f2c0c-default-rtdb.firebaseio.com",
+        projectId: "maternite2022-f2c0c",
+        storageBucket: "maternite2022-f2c0c.appspot.com",
+        messagingSenderId: "550837763853",
+        appId: "1:550837763853:web:270e3808edb8185ca67a44",
+      };
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase();
 
-    import {
-      getDatabase,
-      ref,
-      set,
-      child,
-      get,
-      update,
-      remove,
-    } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+      //-------------------------REFRENCES-------------------//
 
-    const db = getDatabase();
+      const name = document.getElementById("nameInp");
+      const email = document.getElementById("emailInp");
+      const username = document.getElementById("userInp");
+      const pass = document.getElementById("passInp");
+      const submit = document.getElementById("sub_btn");
+      const job = document.getElementById("choosej");
+      const number = document.getElementById("phonenumber");
 
-    //-------------------------REFRENCES-------------------//
+      //-------------------------VALIDATION------------------//
 
-    const name = document.getElementById("nameInp");
-    const email = document.getElementById("emailInp");
-    const username = document.getElementById("userInp");
-    const pass = document.getElementById("passInp");
-    const submit = document.getElementById("sub_btn");
-    const job = document.getElementById("choosej");
-    const number = document.getElementById("phonenumber");
-
-    //-------------------------VALIDATION------------------//
-
-    function Validation() {
-      let emailregex =
-        /^[a-zA-Z0-9]+@(gmail|naver|yahoo|bible|hanmail|kakao|github)\.com$/;
-      let userregex = /^[a-zA-Z0-9]{5,}$/;
-
-      if (!emailregex.test(email.value)) {
-        alert("이메일 형식이 아닙니다.");
-        return false;
-      }
-      if (!userregex.test(username.value)) {
-        alert(
-          "아이디를 영문으로 입력해주세요\n-6자 이상으로 입력해주세요\n-공백은 허용되지 않습니다"
-        );
-        return false;
+      function isEmptyOrSpaces(str) {
+        return str === null || str.match(/^ *$/) !== null;
       }
 
-      return true;
-    }
+      function Validation() {
+        let emailregex = /^[a-zA-Z0-9]+@(gmail|naver|yahoo|bible)\.com$/;
+        let userregex = /^[a-zA-Z0-9]{5,}$/;
+        let passregex = /{6,}$/;
 
-    //-----------------REGISTER USER TO FIREBASE ----------//
-
-    function RegisterUser() {
-      if (!Validation()) {
-        return;
-      }
-      const dbRef = ref(db);
-
-      get(child(dbRef, "UsersList/" + username.value)).then((snapshot) => {
-        if (snapshot.exists()) {
-          alert("계정이 이미 있습니다!");
-        } else {
-          set(ref(db, "UsersList/" + username.value), {
-            fullname: name.value,
-            email: email.value,
-            username: username.value,
-            password: encPass(),
-            job: job.value,
-            phone: number.value,
-          })
-            .then(() => {
-              alert("가입되었습니다");
-              window.location = "index.html";
-            })
-            .catch((error) => {
-              alert("error" + error);
-            });
+        if (
+          isEmptyOrSpaces(name.value) ||
+          isEmptyOrSpaces(email.value) ||
+          isEmptyOrSpaces(username.value) ||
+          isEmptyOrSpaces(pass.value)
+        ) {
+          alert("필수란을 모두 입력해주시기 바랍니다.");
+          return false;
         }
-      });
-    }
 
-    //------------------------------ENCRIPTION---------------------//
+        if (!emailregex.test(email.value)) {
+          alert("이메일 형식이 아닙니다.");
+          return false;
+        }
+        if (!passregex.test(pass.value)) {
+          alert("6자 이상으로 입력해주시기 바랍니다");
+          return false;
+        }
+        if (!userregex.test(username.value)) {
+          alert(
+            "아이디를 영문으로 입력해주세요\n-6자 이상으로 입력해주세요\n-공백은 허용되지 않습니다"
+          );
+          return false;
+        }
 
-    function encPass() {
-      var passenc = CryptoJS.AES.encrypt(pass.value, pass.value);
-      return passenc.toString();
-    }
+        return true;
+      }
 
-    //----------------------ASSIGN THE EVENTS--------------------//
+      //-----------------REGISTER USER TO FIREBASE ----------//
 
-    submit.addEventListener("click", RegisterUser);
-  </script>
+      function RegisterUser() {
+        if (!Validation()) {
+          return;
+        }
+        const dbRef = ref(db);
 
-  <!-- Copyright Section-->
-  <div class="copyright py-4 text-center text-white">
-    <div class="container">
-      <small>Copyright &copy; Maternite 2022</small>
+        get(child(dbRef, "UsersList/" + username.value)).then((snapshot) => {
+          if (snapshot.exists()) {
+            alert("계정이 이미 있습니다!");
+          } else {
+            set(ref(db, "UsersList/" + username.value), {
+              fullname: name.value,
+              email: email.value,
+              username: username.value,
+              password: encPass(),
+              job: job.value,
+              phone: number.value,
+            })
+              .then(() => {
+                alert("성공적으로 가입되었습니다");
+                window.location = "index.html";
+              })
+              .catch((error) => {
+                alert("error" + error);
+              });
+          }
+        });
+      }
+
+      //------------------------------ENCRIPTION---------------------//
+
+      function encPass() {
+        var passenc = CryptoJS.AES.encrypt(pass.value, pass.value);
+        return passenc.toString();
+      }
+
+      //----------------------ASSIGN THE EVENTS--------------------//
+      submit.addEventListener("click", RegisterUser);
+    </script>
+
+    <!-- Copyright Section-->
+    <div class="copyright py-4 text-center text-white">
+      <div class="container">
+        <small>Copyright &copy; Maternite 2022</small>
+      </div>
     </div>
-  </div>
 
-  <!-- Font Awesome icons (free version)-->
-  <script
-    src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
-    crossorigin="anonymous"
-  ></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- Font Awesome icons (free version)-->
+    <script
+      src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-  <!-- Bootstrap core JS-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-  <script src="./js/index.js"></script>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <script src="./src/index.js"></script>
+  </body>
 </html>
