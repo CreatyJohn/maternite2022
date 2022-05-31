@@ -366,7 +366,7 @@
       function Validation() {
         let emailregex = /^[a-zA-Z0-9]+@(gmail|naver|yahoo|bible)\.com$/;
         let userregex = /^[a-zA-Z0-9]{5,}$/;
-        let passregex = /{6,}$/;
+        let passregex = /^[\d]{6,}$/;
 
         if (
           isEmptyOrSpaces(name.value) ||
